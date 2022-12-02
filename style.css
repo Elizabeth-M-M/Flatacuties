@@ -34,7 +34,6 @@ body{
     font-family: 'Roboto',
     sans-serif;
     font-size: 1.6rem;
-
 }
 .container{
     height: 100vh;
@@ -87,11 +86,12 @@ justify-content: space-between
 }
 .container-content-image{
     width: 80%;
-    height: 70%;
+    height: 30rem;
     margin: auto;
 }
 .container-content-image img{
     width: 100%;
+    height: 100%;
 }
 .container-content-width p {
     margin: var(--text);
