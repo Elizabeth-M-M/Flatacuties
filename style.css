@@ -88,6 +88,7 @@ justify-content: space-between
     width: 80%;
     height: 30rem;
     margin: auto;
+    border:6px solid var(--colmedium);
 }
 .container-content-image img{
     width: 100%;
@@ -125,6 +126,9 @@ form input{
     display: block;
     margin: auto;
     margin-top: 1rem;
+}
+.verifyCount::placeholder{
+    color: red;
 }
 @media (min-width:76rem) {
 h1 {
