@@ -1,27 +1,27 @@
 
-// Adding DOM loaded event listener
+// Adding DOM loaded event listener to fetch data
 document.addEventListener("DOMContentLoaded", function () {
     fetchData();
 })
-// function that fetches data
+//fetch data
 function fetchData() {
     fetch('http://localhost:3000/characters')
         .then(resp => resp.json())
         .then(cartoons => cartoons.forEach(cartoon=>
             getEachAnimal(cartoon)))
 }
-// function that gets each individual cartoons
+// get each individual cartoon based on their class name
 function getEachAnimal(cartoon) {
     const buttons = document.querySelectorAll('.container-header-buttons button');
      buttons.forEach(btn => {
         btn.addEventListener('click', (event)=>{
             if(event.target.className ==cartoon.id){
-                // console.log(cartoon)
                 displayCartoon(cartoon)
             }
         })
     })
     }
+    // display the cartoon when a button is clicked
     function displayCartoon(cartoon){
         let cartoonContainer = document.querySelector('.container-content-width');
         cartoonContainer.innerHTML =`
@@ -39,18 +39,31 @@ function getEachAnimal(cartoon) {
                     <button id="resetVote">Reset Votes</button>
                 </form>
         `
+        // add votes of a specific cartoon using input of the user and the cartoon votes already present
         document.getElementById('addVote').addEventListener('click', (event) => {
             event.preventDefault();
-             let input = document.getElementById('voteCount');
-             let inputVal= parseInt(input.value, 10);
-             cartoon.votes+=inputVal;
+             let input = document.getElementById('voteCount');let inputVal = input.value;
+             if(inputVal===''){
+                inputVal=0;
+                console.log(inputVal)
+                 cartoon.votes+=inputVal;
+           document.querySelector('#countDisplay span').innerHTML = cartoon.votes;
+        document.querySelector('form').reset();
+        updateVotesOnServer(cartoon);
+
+             }else{
+                inputVal= parseInt(input.value, 10);
+             console.log(inputVal)
+cartoon.votes+=inputVal;
            document.querySelector('#countDisplay span').innerHTML = cartoon.votes;
         document.querySelector('form').reset();
         updateVotesOnServer(cartoon)
+             }
+
             });
+            // set cartoon vote back to 0
             document.getElementById('resetVote').addEventListener('click', (event)=>{
                 event.preventDefault();
-                console.log('heey')
                 cartoon.votes=0;
                 document.querySelector('#countDisplay span').innerHTML = cartoon.votes;
                 updateVotesOnServer(cartoon)
