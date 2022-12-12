@@ -24,20 +24,19 @@ First I had to make sure the live server was active to get the data. I was able 
 
  `json-server --watch db.json`
  
- Next I ran `fetchData()` function inside that acquires the data and uses the data in the functions to come, next called function being `getEachAnimal(cartoons)`, the `cartoons` parameter being the data from the server. 
+ Next I ran `fetchData()` function that acquires the data and iterates through each using a forEach() method and returns a `getEachAnimal(cartoon)` , the `cartoon` parameter being each individual cartoon from the server. 
  
- `getEachAnimal(cartoons)` iterates over the animals and gets an individual object of each animal passed, which I termed as the `cartoon` parameter, to the `addAnimalFunctionality(cartoon)` function.
- The `addAnimalFunctionality(cartoon)` function has a variety of tasks.
+ `getEachAnimal(cartoons)` targets the buttons and iterates through each button using forEach() method. It looks if the button class name is strictly equal to the passed cartoon id. If a match is found, then that cartoon is passed in as a parameter in the `displayCartoon(cartoon` function. That function has a variety of tasks including:
  
- ###### Task 1: Display the cartoon name, image and the votes.
-- I added class names to each individual cartoon button to match the cartoon id. If the id matched the class name, then the details of the individual cartoon properties, `name`, `image`, `votes` would be displayed on the DOM using the targeted DOM elements.
+ ###### Task 1: Display the cartoon name, image and the votes. 
+- I targeted the card container `div` with the class name of `container-content-width` and passed in an inner HTML. Using an already coded inner HTML, the cartoon keys/ properties were passed in various sections of the inner HTML using the object.key notation.
  
   ###### Task 2:Add Votes
-- The `addVote` button had a click event that added all the votes being put in the input space and displayed the total count on the `p span` tag.
+- The `Add Votes` button had a click event that added all the votes being put in the input space and displayed the total count on the `.container-content-width p span` query selector element.
    ###### Task 2:Reset Votes
-- The `resetVote` button resets the count to 0;
+- The `Reset Vote` button resets the count to 0;
 
 
 #### Live server
-Using `db.json`, I had a live server accesing my object data needed for my app functionality.
+Using `db.json`, I had a live server accesing my object data needed for my app functionality and update the votes using PATCH.
 
