@@ -18,7 +18,7 @@ Using `style.css`, I built out the design and layout of the HTML elements.
 #### JavaScript
 Using `script`, I built out the functionality of the app.
 
-Global variables were declared and hoisted. The functionality basically starts after the DOM content has loaded. 
+Global variables were declared and hoisted. The functionality basically starts after the DOM content has loaded.
 
 First I had to make sure the live server was active to get the data. I was able to achieve this using this command:
 
