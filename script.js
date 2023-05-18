@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 //fetch data
 function fetchData() {
-    fetch('http://localhost:3000/characters')
+    fetch('https://json-server-vercel-teal.vercel.app/characters')
         .then(resp => resp.json())
         .then(cartoons => cartoons.forEach(cartoon=>
             getEachAnimal(cartoon)));
@@ -69,7 +69,7 @@ function getEachAnimal(cartoon) {
     }
     // update the votes on the db.json
     function updateVotesOnServer(cartoon) {
-    fetch(`http://localhost:3000/characters/${cartoon.id}`, {
+    fetch(`https://json-server-vercel-teal.vercel.app/characters/${cartoon.id}`, {
         method:'PATCH',
         headers:{
             'Content-Type':'application/json'
